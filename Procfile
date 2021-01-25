@@ -1,1 +1,1 @@
-web: browser-sync start -s -f
+web: browser-sync start -s -f index.html --port $PORT
