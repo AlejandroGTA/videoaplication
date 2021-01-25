@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+        var cont = 0;
+    </script>
+</head>
+<body style="background-color: black;">
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link active" href="/">Active</a>
+      </nav>
+
+    <div style="text-align: center; background-color: black;">
+        <!-- <video id="video" style="height: 350px; width: 550px;" src="/interestelar.mp4" controls>
+            <source id="videoSource" src="/interestelar.mp4" type="video/mp4">
+        </video> -->
+        <video id="video" style="height: 350px; width: 550px;" src="https://r3---sn-9gv7ene6.c.drive.google.com/videoplayback?expire=1611555229&ei=XSkOYO_7GoOTxwOsoIrgCA&ip=187.192.248.103&cp=QVRGU0ZfVFJQSlhPOklzOVhOUEludklaRjVJYVpzMjlFdU4xdjAzNTEtbjVndzV6WVNyTWlzT0o&id=e6c95eab32048d1c&itag=18&source=webdrive&requiressl=yes&mh=x5&mm=32&mn=sn-9gv7ene6&ms=su&mv=m&mvi=3&pl=21&sc=yes&usequic=no&ttl=transient&susc=dr&driveid=10yLViVwanAsGyf2VxaKH5f39Dt8rqGXt&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=10143.939&lmt=1600996168141827&mt=1611540738&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIhAPK-eh_twIuN3XNlsdlVsS4rUcYEBoGpgl_f-f6DWD8yAiB7wy0UGyCchvUATkqyL_34dkFzT66PklzENaZSNIH8Lw==&lsparams=mh,mm,mn,ms,mv,mvi,pl,sc,usequic&lsig=AG3C_xAwRAIgJL9gNx6bxdkd0e269Ic0tlTyU-YktCShh-sW04XWaQMCIFT5rX39JFrvn3jyQoSUaJGv4t_6Af_5beIX88SHbdrs&cpn=aiVVLZ0AYdW5b_1H&c=WEB_EMBEDDED_PLAYER&cver=20210121" controls>
+            <source id="videoSource" src="https://r3---sn-9gv7ene6.c.drive.google.com/videoplayback?expire=1611555229&ei=XSkOYO_7GoOTxwOsoIrgCA&ip=187.192.248.103&cp=QVRGU0ZfVFJQSlhPOklzOVhOUEludklaRjVJYVpzMjlFdU4xdjAzNTEtbjVndzV6WVNyTWlzT0o&id=e6c95eab32048d1c&itag=18&source=webdrive&requiressl=yes&mh=x5&mm=32&mn=sn-9gv7ene6&ms=su&mv=m&mvi=3&pl=21&sc=yes&usequic=no&ttl=transient&susc=dr&driveid=10yLViVwanAsGyf2VxaKH5f39Dt8rqGXt&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=10143.939&lmt=1600996168141827&mt=1611540738&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIhAPK-eh_twIuN3XNlsdlVsS4rUcYEBoGpgl_f-f6DWD8yAiB7wy0UGyCchvUATkqyL_34dkFzT66PklzENaZSNIH8Lw==&lsparams=mh,mm,mn,ms,mv,mvi,pl,sc,usequic&lsig=AG3C_xAwRAIgJL9gNx6bxdkd0e269Ic0tlTyU-YktCShh-sW04XWaQMCIFT5rX39JFrvn3jyQoSUaJGv4t_6Af_5beIX88SHbdrs&cpn=aiVVLZ0AYdW5b_1H&c=WEB_EMBEDDED_PLAYER&cver=20210121" type="video/mp4">
+        </video>
+        <!-- <iframe id="frame"  src="https://drive.google.com/file/d/1IkWuB70ByyNGpSMZwP_NVWDGTSd66vGR/preview" width="640" height="480"></iframe> -->
+        <br>
+        <div class="input-group input-group-lg col-md-5 mx-auto"></div>
+            <button id="btnPlay" class="btn btn-success" style="text-align: center;" onclick="play();"> PLAY <button>
+            <input id='inpH' class="form-control" type="number" placeholder="Horas">
+            <input id='inpM' class="form-control" type="number" placeholder="Minutos">
+            <input id='inpS' class="form-control" type="number" placeholder="Segundos">
+            <button id="goTo" class="btn btn-primary"  onclick="goTo();">Establecer</button>
+            <!-- <input id="archivo" type="file" > -->
+            <button id="abrir" class="btn btn-primary" onclick="Cargar();">Cargar</button>
+        </div>
+    </div>
+    <script>
+        const video = document.getElementById('video');
+        const btn = document.getElementById('btnPlay');
+        const btnCargar = document.getElementById('abrir');
+        const videoSource = document.getElementById('videoSource');
+        const archivo = document.getElementById('archivo');
+        const frame = document.getElementById('frame');
+
+        function Cargar(){
+            video.value = frame.value;
+            // videoSource.value = archivo.value;
+        }
+
+        function play(){
+            if(cont == 0){
+                // btn.style.backgroundColor = 'red';
+                btn.className = "btn btn-danger";
+                // frame.
+                video.play();
+            }
+            else{
+                // btn.style.backgroundColor = 'blue';
+                btn.className = "btn btn-success";
+                video.pause();
+                cont = -1;
+            }
+            cont++;
+        }
+
+        function goTo(){
+            let horas = document.getElementById('inpH').value;
+            let minutos = document.getElementById('inpM').value;
+            let segundos = document.getElementById('inpS').value;
+            let tiempo = 0;
+
+            if(horas == 0 || horas == null || horas == ""){
+                horas = 0;
+            }
+            else{
+                horas = horas * 3600;
+            }
+            if(minutos == 0 || minutos == null || minutos == ''){
+                minutos = 0;
+            }
+            else{
+                minutos = minutos * 60;
+            }
+            if(segundos == 0 || segundos == null || segundos == ''){
+                segundos = 0;
+            }
+            else{
+                
+            }
+            
+            tiempo = horas*1 + minutos*1 + segundos*1;
+            // console.log(tiempo);
+            video.currentTime = tiempo; 
+            
+        }
+    </script>
+</body>
+</html>
